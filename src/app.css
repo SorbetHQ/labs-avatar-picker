@@ -1,0 +1,215 @@
+:root {
+  --blackberry: #5b408e;
+  --strawberry: #f94b6c;
+  --mango: #ffb703;
+  --lime: #8adf72;
+  --mint: #00d2c1;
+  --white: white;
+  --border-color: #dfdfdf;
+  --border-radius-circle: 50%;
+  --border-radius-rounded: 0.5rem;
+  --transition-speed: 200ms;
+  --avatar-height: 16rem;
+  --avatar-width: 16rem;
+  --swatch-size: 6rem;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.Avatar {
+  background-color: var(--white);
+  border: 6px solid var(--border-color);
+  border-radius: var(--border-radius-circle);
+  height: var(--avatar-height);
+  margin-right: 1rem;
+  overflow: hidden;
+  transition: all var(--transition-speed) ease-in-out;
+  width: var(--avatar-width);
+}
+
+.Avatar--flip {
+  transform: scale(-1,1);
+  transition: all var(--transition-speed) ease-in-out;
+}
+
+.Avatar svg {
+  height: 100%;
+  width: 100%;
+}
+
+.Control {
+  margin-right: 1rem;
+}
+
+.Swatch {
+  align-items: center;
+  border: 4px solid var(--border-color);
+  border-radius: var(--border-radius-rounded);
+  color: var(--white);
+  display: flex;
+  height: var(--swatch-size);
+  justify-content: center;
+  margin-bottom: 0.25rem;
+  transition: all var(--transition-speed) ease-in-out;
+  width: var(--swatch-size);
+}
+
+.Swatch-white.Swatch {
+  color: var(--Foreground);
+}
+
+.Swatch-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: var(--swatch-size);
+}
+
+.Swatch-option {
+  align-items: center;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-rounded);
+  color: var(--white);
+  cursor: pointer;
+  display: flex;
+  flex: 0 1 calc(calc(100% / 3) - 1px);
+  height: calc(var(--swatch-size) / 3);
+  justify-content: center;
+  margin-bottom: 2px;
+  transition: all var(--transition-speed) ease-in-out;
+}
+
+.Swatch-white.Swatch-option {
+  color: var(--Foreground);
+}
+
+.Swatch-blackberry {
+  background: var(--blackberry);
+}
+
+.Swatch-strawberry {
+  background: var(--strawberry);
+}
+
+.Swatch-mango {
+  background: var(--mango);
+}
+
+.Swatch-lime {
+  background: var(--lime);
+}
+
+.Swatch-mint {
+  background: var(--mint);
+}
+
+.Swatch-white {
+  background: var(--white);
+}
+
+.primary {
+  transition: all var(--transition-speed) ease-in-out;
+}
+
+.secondary {
+  transition: all var(--transition-speed) ease-in-out;
+}
+
+.Primary-blackberry .primary {
+  fill: var(--blackberry);
+}
+
+.Primary-strawberry .primary {
+  fill: var(--strawberry);
+}
+
+.Primary-mango .primary {
+  fill: var(--mango);
+}
+
+.Primary-lime .primary {
+  fill: var(--lime);
+}
+
+.Primary-mint .primary {
+  fill: var(--mint);
+}
+
+.Primary-white .primary {
+  fill: var(--white);
+}
+
+.Secondary-blackberry .secondary {
+  fill: var(--blackberry);
+}
+
+.Secondary-strawberry .secondary {
+  fill: var(--strawberry);
+}
+
+.Secondary-mango .secondary {
+  fill: var(--mango);
+}
+
+.Secondary-lime .secondary {
+  fill: var(--lime);
+}
+
+.Secondary-mint .secondary {
+  fill: var(--mint);
+}
+
+.Secondary-white .secondary {
+  fill: var(--white);
+}
+
+.Avatar--leftEyebrow .Eyebrow-left {
+  animation-name: k;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+  transform-origin: 15% 30%;
+  animation-duration: 2s;
+}
+
+.Avatar--rightEyebrow .Eyebrow-right {
+  animation-name: j;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+  transform-origin: 40% 30%;
+  animation-duration: 2s;
+}
+
+.Avatar--wink .rightEye {
+  transform: scale(-1,1);
+  transform-origin: 40% 30%;
+  transition: all var(--transition-speed) ease-in-out;
+}
+
+@keyframes j {
+  0%, 37.5%, to {
+      transform: rotate(0)
+  }
+
+  12.5%, 25% {
+    transform: rotate(25deg)
+  }
+}
+
+@keyframes k {
+  0%, 37.5%, to {
+    transform: rotate(0)
+  }
+
+  12.5%, 25% {
+    transform: rotate(-25deg)
+  }
+}
