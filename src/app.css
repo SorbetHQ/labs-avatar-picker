@@ -46,6 +46,10 @@ html {
   width: 100%;
 }
 
+.Avatar polygon, .Avatar polyline, .Avatar path {
+  transition: all calc(var(--transition-speed) * 2) ease-in-out;
+}
+
 .Control {
   margin-right: 1rem;
 }

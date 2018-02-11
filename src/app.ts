@@ -33,7 +33,7 @@ export class App {
     this.randomTimer = setInterval(() =>
       [].forEach.call(document.querySelectorAll('path, polyline, polygon'),
         (div) => randomTransform(div))
-      , 100);
+      , 400);
   }
 
   public setPrimary(colour: string) {
