@@ -1,6 +1,5 @@
-import { TaskQueue, autoinject, observable } from "aurelia-framework";
+import { observable } from "aurelia-framework";
 
-@autoinject()
 export class App {
   public colours = [
     'blackberry',
@@ -20,25 +19,21 @@ export class App {
   public randomTimer: NodeJS.Timer;
   @observable public scatter: boolean = false;
 
-  constructor(private taskQueue: TaskQueue) { }
-
   public scatterChanged(newValue) {
     if (newValue) {
       this.random();
     } else {
       clearTimeout(this.randomTimer);
-      var items = document.querySelectorAll('path, polyline, polygon');
-
-      [].forEach.call(items, (div) => clearTransform(div));
+      [].forEach.call(document.querySelectorAll('path, polyline, polygon'),
+        (div) => setTransform(div, ''));
     }
   }
 
   public random() {
-    this.randomTimer = setInterval(() => {
-      var items = document.querySelectorAll('path, polyline, polygon');
-
-      [].forEach.call(items, (div) => randomTransform(div));
-    }, 100);
+    this.randomTimer = setInterval(() =>
+      [].forEach.call(document.querySelectorAll('path, polyline, polygon'),
+        (div) => randomTransform(div))
+      , 100);
   }
 
   public setPrimary(colour: string) {
@@ -51,22 +46,16 @@ export class App {
 }
 
 function randomTransform(el) {
-  var trans = "matrix3d(" + Math.random() + ", -" + Math.random() + ", " + Math.random() + ", 0, " + Math.random() + ", " + Math.random() + ", " + Math.random() + ", 0, -" + Math.random() + ", 0, " + Math.random() + ", 0, 0, 0, 0, 1)";
+  var trans = "matrix3d(" + Math.random() + ", -" + Math.random() + ", " + Math.random() + ", " + Math.random() + ", " + Math.random() + ", " + Math.random() + ", " + Math.random() + ", 0, -" + Math.random() + ", 0, " + Math.random() + ", " + Math.random() + ", " + Math.random() + ", " + Math.random() + ", " + Math.random() + ", 1)";
 
-  clearTransform(el);
+  setTransform(el, "");
+  setTransform(el, trans);
+}
 
-  // set random transform
+function setTransform(el, trans) {
+  el.style.transform = trans;
   el.style.webkitTransform = trans;
   el.style.MozTransform = trans;
   el.style.msTransform = trans;
   el.style.OTransform = trans;
-  el.style.transform = trans;
-}
-
-function clearTransform(el) {
-  el.style.transform = "";
-  el.style.webkitTransform = "";
-  el.style.MozTransform = "";
-  el.style.msTransform = "";
-  el.style.OTransform = "";
 }
