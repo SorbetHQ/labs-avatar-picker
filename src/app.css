@@ -11,7 +11,63 @@
   --transition-speed: 200ms;
   --avatar-height: 16rem;
   --avatar-width: 16rem;
-  --swatch-size: 6rem;
+  --swatch-size: 8rem;
+}
+
+@font-face {
+  font-family: 'Buenos Aires';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../../assets/fonts/BuenosAiresWeb-Light.woff2') format('woff2'), url('../../assets/fonts/BuenosAiresWeb-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Buenos Aires';
+  font-style: normal;
+  font-weight: bold;
+  src: url('../../assets/fonts/BuenosAiresWeb-Regular.woff2') format('woff2'), url('../../assets/fonts/BuenosAiresWeb-Regular.woff') format('woff');
+}
+
+/**
+ * @license
+ * MyFonts Webfont Build ID 3355354, 2017-03-07T09:02:51-0500
+ *
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are
+ * explicitly restricted from using the Licensed Webfonts(s).
+ *
+ * You may obtain a valid license at the URLs below.
+ *
+ * Webfont: Sailec-Bold by Type Dynamic
+ * URL: http://www.myfonts.com/fonts/typedynamic/sailec/bold/
+ *
+ * Webfont: Sailec-Regular by Type Dynamic
+ * URL: http://www.myfonts.com/fonts/typedynamic/sailec/regular/
+ *
+ *
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=3355354
+ * Licensed pageviews: 20,000
+ * Webfonts copyright: Copyright &#x00A9; 2014 by Type Dynamic. All rights reserved.
+ *
+ * © 2017 MyFonts Inc
+*/
+
+@font-face {
+  font-family: 'Sailec';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../../assets/fonts/sailec.woff2') format('woff2'), url('../../assets/fonts/sailec.woff') format('woff'), url('../../assets/fonts/sailec.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Sailec';
+  font-style: normal;
+  font-weight: bold;
+  src: url('../../assets/fonts/sailec-bold.woff2') format('woff2'), url('../../assets/fonts/sailec-bold.woff') format('woff'), url('../../assets/fonts/sailec-bold.ttf') format('truetype');
+}
+
+body {
+  font-family: 'Sailec';
 }
 
 html {
@@ -19,6 +75,35 @@ html {
 }
 *, *:before, *:after {
   box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Buenos Aires';
+  font-weight: '500';
+}
+
+p {
+  font-family: 'Sailec';
+}
+
+.App {
+  display: block;
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.App-header {
+  background-color: #ebebeb;
+  border-radius: var(--border-radius-rounded);
+  font-family: 'Buenos Aires';
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .flex-container {

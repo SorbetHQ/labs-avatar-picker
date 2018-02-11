@@ -2,54 +2,57 @@
   <require from="./app.css"></require>
   <require from="./person.html"></require>
 
-  <h1>Avatar Picker</h1>
+  <div class="App">
+    <header class="App-header">Avatar Picker</header>
 
-  <div class="flex-container">
+    <main class="flex-container">
 
-    <div class="Avatar Primary-${primaryColour} Secondary-${secondaryColour} ${flip ? 'Avatar--flip' : '' } ${leftEyebrow ? 'Avatar--leftEyebrow' : '' } ${rightEyebrow ? 'Avatar--rightEyebrow' : '' }">
-      <person></person>
-    </div>
+      <div class="Avatar Primary-${primaryColour} Secondary-${secondaryColour} ${flip ? 'Avatar--flip' : '' } ${leftEyebrow ? 'Avatar--leftEyebrow' : '' } ${rightEyebrow ? 'Avatar--rightEyebrow' : '' }">
+        <person></person>
+      </div>
 
-    <div class="Control">
-      <div class="Swatch Swatch-${primaryColour}">Primary</div>
+      <div class="Control">
+        <div class="Swatch Swatch-${primaryColour}">Primary</div>
 
-      <div class="Swatch-options">
-        <div repeat.for="colour of colours" class="Swatch-option Swatch-${colour}" click.delegate="setPrimary(colour)">
-          ${primaryColour === colour? '&times;': ''}
+        <div class="Swatch-options">
+          <div repeat.for="colour of colours" class="Swatch-option Swatch-${colour}" click.delegate="setPrimary(colour)">
+            ${primaryColour === colour? '&times;': ''}
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="Control">
-      <div class="Swatch Swatch-${secondaryColour}">Secondary</div>
+      <div class="Control">
+        <div class="Swatch Swatch-${secondaryColour}">Secondary</div>
 
-      <div class="Swatch-options">
-        <div repeat.for="colour of colours" class="Swatch-option Swatch-${colour}" click.delegate="setSecondary(colour)">
-          ${secondaryColour === colour? '&times;': ''}
+        <div class="Swatch-options">
+          <div repeat.for="colour of colours" class="Swatch-option Swatch-${colour}" click.delegate="setSecondary(colour)">
+            ${secondaryColour === colour? '&times;': ''}
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="Control">
-      <div>
-        <input id="direction" type="checkbox" checked.bind="flip">
-        <label for="direction">Flip</label>
-      </div>
+      <div class="Control">
+        <div>
+          <input id="direction" type="checkbox" checked.bind="flip">
+          <label for="direction">Flip</label>
+        </div>
 
-      <div>
-        <input id="lefteyebrow" type="checkbox" checked.bind="leftEyebrow">
-        <label for="lefteyebrow">Left Eyebrow</label>
-      </div>
+        <div>
+          <input id="lefteyebrow" type="checkbox" checked.bind="leftEyebrow">
+          <label for="lefteyebrow">Left Eyebrow</label>
+        </div>
 
-      <div>
-        <input id="righteyebrow" type="checkbox" checked.bind="rightEyebrow">
-        <label for="righteyebrow">Right Eyebrow</label>
-      </div>
+        <div>
+          <input id="righteyebrow" type="checkbox" checked.bind="rightEyebrow">
+          <label for="righteyebrow">Right Eyebrow</label>
+        </div>
 
-      <div>
+        <div>
           <input id="scatter" type="checkbox" checked.bind="scatter">
           <label for="scatter">Scatter</label>
         </div>
-    </div>
+      </div>
+    </main>
   </div>
+
 </template>
