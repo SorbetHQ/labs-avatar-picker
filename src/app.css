@@ -12,82 +12,23 @@
   --avatar-height: 16rem;
   --avatar-width: 16rem;
   --swatch-size: 8rem;
-}
-
-@font-face {
-  font-family: 'Buenos Aires';
-  font-style: normal;
-  font-weight: normal;
-  src: url('../../assets/fonts/BuenosAiresWeb-Light.woff2') format('woff2'), url('../../assets/fonts/BuenosAiresWeb-Light.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Buenos Aires';
-  font-style: normal;
-  font-weight: bold;
-  src: url('../../assets/fonts/BuenosAiresWeb-Regular.woff2') format('woff2'), url('../../assets/fonts/BuenosAiresWeb-Regular.woff') format('woff');
-}
-
-/**
- * @license
- * MyFonts Webfont Build ID 3355354, 2017-03-07T09:02:51-0500
- *
- * The fonts listed in this notice are subject to the End User License
- * Agreement(s) entered into by the website owner. All other parties are
- * explicitly restricted from using the Licensed Webfonts(s).
- *
- * You may obtain a valid license at the URLs below.
- *
- * Webfont: Sailec-Bold by Type Dynamic
- * URL: http://www.myfonts.com/fonts/typedynamic/sailec/bold/
- *
- * Webfont: Sailec-Regular by Type Dynamic
- * URL: http://www.myfonts.com/fonts/typedynamic/sailec/regular/
- *
- *
- * License: http://www.myfonts.com/viewlicense?type=web&buildid=3355354
- * Licensed pageviews: 20,000
- * Webfonts copyright: Copyright &#x00A9; 2014 by Type Dynamic. All rights reserved.
- *
- * © 2017 MyFonts Inc
-*/
-
-@font-face {
-  font-family: 'Sailec';
-  font-style: normal;
-  font-weight: normal;
-  src: url('../../assets/fonts/sailec.woff2') format('woff2'), url('../../assets/fonts/sailec.woff') format('woff'), url('../../assets/fonts/sailec.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Sailec';
-  font-style: normal;
-  font-weight: bold;
-  src: url('../../assets/fonts/sailec-bold.woff2') format('woff2'), url('../../assets/fonts/sailec-bold.woff') format('woff'), url('../../assets/fonts/sailec-bold.ttf') format('truetype');
+  --avatar-background: var(--white);
+  --avatar-primary: var(--lime);
+  --avatar-secondary: var(--mint);
 }
 
 body {
-  font-family: 'Sailec';
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
 }
 
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: 'Buenos Aires';
-  font-weight: '500';
-}
-
-p {
-  font-family: 'Sailec';
 }
 
 .App {
@@ -99,54 +40,32 @@ p {
 .App-header {
   background-color: #ebebeb;
   border-radius: var(--border-radius-rounded);
-  font-family: 'Buenos Aires';
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: bold;
   margin-bottom: 1rem;
   padding: 0.5rem 1rem;
 }
 
-.flex-container {
+.Avatar-container {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .Avatar {
-  background-color: var(--white);
+  background-color: var(--avatar-background);
   border: 6px solid var(--border-color);
   border-radius: var(--border-radius-circle);
   height: var(--avatar-height);
+  flex: 0 0 var(--avatar-width);
   margin-right: 1rem;
   overflow: hidden;
   transition: all var(--transition-speed) ease-in-out;
   width: var(--avatar-width);
 }
 
-.Avatar-blackberry {
-  background-color: var(--blackberry);
-}
-
-.Avatar-strawberry {
-  background-color: var(--strawberry);
-}
-
-.Avatar-mango {
-  background-color: var(--mango);
-}
-
-.Avatar-lime {
-  background-color: var(--lime);
-}
-
-.Avatar-mint {
-  background-color: var(--mint);
-}
-
-.Avatar-white {
-  background-color: var(--white);
-}
-
 .Avatar--flip {
-  transform: scale(-1,1);
+  transform: scale(-1, 1);
   transition: all var(--transition-speed) ease-in-out;
 }
 
@@ -156,38 +75,28 @@ p {
 }
 
 .Avatar--party svg {
-  animation-name: pulse;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease;
-  animation-duration: 500ms;
+  animation: pulse 500ms ease-in-out infinite;
 }
 
-.Avatar polygon, .Avatar polyline, .Avatar path {
+@keyframes pulse {
+  0%,
+  37.5%,
+  to {
+    transform: scale(1)
+  }
+  12.5%,
+  25% {
+    transform: scale(1.2)
+  }
+}
+
+.Avatar polygon,
+.Avatar polyline,
+.Avatar path {
   transition: all calc(var(--transition-speed) * 2) ease-in-out;
 }
 
-.Control {
-  margin-right: 1rem;
-}
-
 .Swatch {
-  align-items: center;
-  border: 4px solid var(--border-color);
-  border-radius: var(--border-radius-rounded);
-  color: var(--white);
-  display: flex;
-  height: var(--swatch-size);
-  justify-content: center;
-  margin-bottom: 0.25rem;
-  transition: all var(--transition-speed) ease-in-out;
-  width: var(--swatch-size);
-}
-
-.Swatch-white.Swatch {
-  color: var(--Foreground);
-}
-
-.Swatch-options {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -197,19 +106,16 @@ p {
 .Swatch-option {
   align-items: center;
   border: 2px solid var(--border-color);
+  background: var(--swatch-background);
   border-radius: var(--border-radius-rounded);
-  color: var(--white);
   cursor: pointer;
   display: flex;
+  font-size: 1.6rem;
   flex: 0 1 calc(calc(100% / 3) - 1px);
   height: calc(var(--swatch-size) / 3);
   justify-content: center;
   margin-bottom: 2px;
   transition: all var(--transition-speed) ease-in-out;
-}
-
-.Swatch-white.Swatch-option {
-  color: var(--Foreground);
 }
 
 .Swatch-blackberry {
@@ -236,71 +142,50 @@ p {
   background: var(--white);
 }
 
+.Control {
+  margin-right: 1rem;
+}
+
+.Control-header {
+  margin: 0 0 0.5rem;
+}
+
+.Control-item {
+  margin-bottom: 0.5rem;
+}
+
+.Control-item:last-of-type {
+  margin-bottom: 1rem;
+}
+
 .primary {
+  fill: var(--avatar-primary);
   transition: all var(--transition-speed) ease-in-out;
 }
 
 .secondary {
+  fill: var(--avatar-secondary);
   transition: all var(--transition-speed) ease-in-out;
 }
 
-.Primary-blackberry .primary {
-  fill: var(--blackberry);
-}
-
-.Primary-strawberry .primary {
-  fill: var(--strawberry);
-}
-
-.Primary-mango .primary {
-  fill: var(--mango);
-}
-
-.Primary-lime .primary {
-  fill: var(--lime);
-}
-
-.Primary-mint .primary {
-  fill: var(--mint);
-}
-
-.Primary-white .primary {
-  fill: var(--white);
-}
-
-.Secondary-blackberry .secondary {
-  fill: var(--blackberry);
-}
-
-.Secondary-strawberry .secondary {
-  fill: var(--strawberry);
-}
-
-.Secondary-mango .secondary {
-  fill: var(--mango);
-}
-
-.Secondary-lime .secondary {
-  fill: var(--lime);
-}
-
-.Secondary-mint .secondary {
-  fill: var(--mint);
-}
-
-.Secondary-white .secondary {
-  fill: var(--white);
-}
-
-.Eyebrow-left  {
+.Eyebrow-left {
   transform-origin: 15% 30%;
 }
 
 .Avatar--leftEyebrow .Eyebrow-left {
-  animation-name: k;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease;
-  animation-duration: 2s;
+  animation: raiseLeft 2s ease infinite;
+}
+
+@keyframes raiseLeft {
+  0%,
+  37.5%,
+  to {
+    transform: rotate(0)
+  }
+  12.5%,
+  25% {
+    transform: rotate(-25deg)
+  }
 }
 
 .Eyebrow-right {
@@ -308,39 +193,23 @@ p {
 }
 
 .Avatar--rightEyebrow .Eyebrow-right {
-  animation-name: j;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease;
-  animation-duration: 2s;
+  animation: raiseRight 2s ease infinite;
 }
 
-@keyframes j {
-  0%, 37.5%, to {
-      transform: rotate(0)
+@keyframes raiseRight {
+  0%,
+  37.5%,
+  to {
+    transform: rotate(0)
   }
-
-  12.5%, 25% {
+  12.5%,
+  25% {
     transform: rotate(25deg)
   }
 }
 
-@keyframes k {
-  0%, 37.5%, to {
-    transform: rotate(0)
-  }
-
-  12.5%, 25% {
-    transform: rotate(-25deg)
-  }
-}
-
-
-@keyframes pulse {
-  0%, 37.5%, to {
-    transform: scale(1)
-  }
-
-  12.5%, 25% {
-    transform: scale(1.2)
-  }
+.Button {
+  font-size: 1.1rem;
+  border-radius: 0.2rem;
+  padding: 0.25rem 1rem;
 }

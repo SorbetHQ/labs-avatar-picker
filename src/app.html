@@ -1,30 +1,28 @@
-<template>
+<template ref="element">
   <require from="./app.css"></require>
   <require from="./person.html"></require>
 
   <div class="App">
     <header class="App-header">Avatar Picker</header>
 
-    <main class="flex-container">
+    <main class="Avatar-container">
 
-      <div class="Avatar Avatar-${backgroundColour} ${flip ? 'Avatar--flip' : '' } ${party ? 'Avatar--party' : '' }">
-        <person class="Primary-${primaryColour} Secondary-${secondaryColour} ${leftEyebrow ? 'Avatar--leftEyebrow' : '' } ${rightEyebrow ? 'Avatar--rightEyebrow' : '' }"></person>
+      <div class="Avatar ${flip ? 'Avatar--flip' : '' } ${party ? 'Avatar--party' : '' }">
+        <person class="${leftEyebrow ? 'Avatar--leftEyebrow' : '' } ${rightEyebrow ? 'Avatar--rightEyebrow' : '' }"></person>
       </div>
 
       <div class="Control">
-        <div class="Swatch Swatch-${primaryColour}">Primary</div>
+        <h2 class="Control-header">Primary</h2>
 
-        <div class="Swatch-options">
+        <div class="Control-item Swatch">
           <div repeat.for="colour of colours" class="Swatch-option Swatch-${colour}" click.delegate="setPrimary(colour)">
             ${primaryColour === colour? '&times;': ''}
           </div>
         </div>
-      </div>
 
-      <div class="Control">
-        <div class="Swatch Swatch-${secondaryColour}">Secondary</div>
+        <h2 class="Control-header">Secondary</h2>
 
-        <div class="Swatch-options">
+        <div class="Control-item Swatch">
           <div repeat.for="colour of colours" class="Swatch-option Swatch-${colour}" click.delegate="setSecondary(colour)">
             ${secondaryColour === colour? '&times;': ''}
           </div>
@@ -32,30 +30,32 @@
       </div>
 
       <div class="Control">
-        <div>
+        <h2 class="Control-header">Controls</h2>
+        <div class="Control-item">
           <input id="direction" type="checkbox" checked.bind="flip">
           <label for="direction">Flip</label>
         </div>
 
-        <div>
+        <div class="Control-item">
           <input id="lefteyebrow" type="checkbox" checked.bind="leftEyebrow">
           <label for="lefteyebrow">Left Eyebrow</label>
         </div>
 
-        <div>
+        <div class="Control-item">
           <input id="righteyebrow" type="checkbox" checked.bind="rightEyebrow">
           <label for="righteyebrow">Right Eyebrow</label>
         </div>
 
-        <div>
+        <div class="Control-item">
           <input id="party" type="checkbox" checked.bind="party">
           <label for="party">Start the party!</label>
         </div>
 
-        <div>
-          <input id="scatter" type="checkbox" checked.bind="scatter">
-          <label for="scatter">Go crazy!</label>
+        <div class="Control-item">
+          <input id="goCrazy" type="checkbox" checked.bind="goCrazy">
+          <label for="goCrazy">Go crazy!</label>
         </div>
+        <button class="Button" click.delegate="reset()">Reset</button>
       </div>
     </main>
   </div>
