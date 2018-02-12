@@ -7,8 +7,8 @@
 
     <main class="flex-container">
 
-      <div class="Avatar Primary-${primaryColour} Secondary-${secondaryColour} ${flip ? 'Avatar--flip' : '' } ${leftEyebrow ? 'Avatar--leftEyebrow' : '' } ${rightEyebrow ? 'Avatar--rightEyebrow' : '' }">
-        <person></person>
+      <div class="Avatar Avatar-${backgroundColour} ${flip ? 'Avatar--flip' : '' } ${party ? 'Avatar--party' : '' }">
+        <person class="Primary-${primaryColour} Secondary-${secondaryColour} ${leftEyebrow ? 'Avatar--leftEyebrow' : '' } ${rightEyebrow ? 'Avatar--rightEyebrow' : '' }"></person>
       </div>
 
       <div class="Control">
@@ -48,8 +48,13 @@
         </div>
 
         <div>
+          <input id="party" type="checkbox" checked.bind="party">
+          <label for="party">Start the party!</label>
+        </div>
+
+        <div>
           <input id="scatter" type="checkbox" checked.bind="scatter">
-          <label for="scatter">Scatter</label>
+          <label for="scatter">Go crazy!</label>
         </div>
       </div>
     </main>

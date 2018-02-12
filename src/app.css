@@ -121,6 +121,30 @@ p {
   width: var(--avatar-width);
 }
 
+.Avatar-blackberry {
+  background-color: var(--blackberry);
+}
+
+.Avatar-strawberry {
+  background-color: var(--strawberry);
+}
+
+.Avatar-mango {
+  background-color: var(--mango);
+}
+
+.Avatar-lime {
+  background-color: var(--lime);
+}
+
+.Avatar-mint {
+  background-color: var(--mint);
+}
+
+.Avatar-white {
+  background-color: var(--white);
+}
+
 .Avatar--flip {
   transform: scale(-1,1);
   transition: all var(--transition-speed) ease-in-out;
@@ -129,6 +153,13 @@ p {
 .Avatar svg {
   height: 100%;
   width: 100%;
+}
+
+.Avatar--party svg {
+  animation-name: pulse;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+  animation-duration: 500ms;
 }
 
 .Avatar polygon, .Avatar polyline, .Avatar path {
@@ -261,26 +292,26 @@ p {
   fill: var(--white);
 }
 
+.Eyebrow-left  {
+  transform-origin: 15% 30%;
+}
+
 .Avatar--leftEyebrow .Eyebrow-left {
   animation-name: k;
   animation-iteration-count: infinite;
   animation-timing-function: ease;
-  transform-origin: 15% 30%;
   animation-duration: 2s;
+}
+
+.Eyebrow-right {
+  transform-origin: 40% 30%;
 }
 
 .Avatar--rightEyebrow .Eyebrow-right {
   animation-name: j;
   animation-iteration-count: infinite;
   animation-timing-function: ease;
-  transform-origin: 40% 30%;
   animation-duration: 2s;
-}
-
-.Avatar--wink .rightEye {
-  transform: scale(-1,1);
-  transform-origin: 40% 30%;
-  transition: all var(--transition-speed) ease-in-out;
 }
 
 @keyframes j {
@@ -300,5 +331,16 @@ p {
 
   12.5%, 25% {
     transform: rotate(-25deg)
+  }
+}
+
+
+@keyframes pulse {
+  0%, 37.5%, to {
+    transform: scale(1)
+  }
+
+  12.5%, 25% {
+    transform: scale(1.2)
   }
 }
