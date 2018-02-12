@@ -1,5 +1,6 @@
 import { inject } from 'aurelia-dependency-injection';
 import { observable, DOM } from "aurelia-framework";
+import { getRandomInt, randomTransform, setTransform, setCSSVariable } from './utils';
 
 export class App {
   public colours = ['blackberry', 'strawberry', 'mango', 'lime', 'mint', 'white'];
@@ -43,8 +44,7 @@ export class App {
         this.setPrimary(this.colours[getRandomInt(this.colours.length)]);
         this.setSecondary(this.colours[getRandomInt(this.colours.length)]);
         this.setBackground(this.colours[getRandomInt(this.colours.length)]);
-      }
-        , 200);
+      }, 200);
     } else {
       clearTimeout(this.partyTimer);
       this.setBackground('white');
@@ -52,18 +52,15 @@ export class App {
   }
 
   public setPrimary(colour: string) {
-    this.primaryColour = colour;
-    document.documentElement.style.setProperty('--avatar-primary', `var(--${colour})`);
+    this.primaryColour = setCSSVariable('avatar-primary', colour);
   }
 
   public setSecondary(colour: string) {
-    this.secondaryColour = colour;
-    document.documentElement.style.setProperty('--avatar-secondary', `var(--${colour})`);
+    this.secondaryColour = setCSSVariable('avatar-secondary', colour);
   }
 
   public setBackground(colour: string) {
-    this.backgroundColour = colour;
-    document.documentElement.style.setProperty('--avatar-background', `var(--${colour})`);
+    this.backgroundColour = setCSSVariable('avatar-background', colour);
   }
 
   public reset() {
@@ -77,21 +74,3 @@ export class App {
   }
 }
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
-
-function randomTransform(el) {
-  var trans = "matrix3d(" + Math.random() + ", -" + Math.random() + ", " + Math.random() + ", " + Math.random() + ", " + Math.random() + ", " + Math.random() + ", " + Math.random() + ", 0, -" + Math.random() + ", 0, " + Math.random() + ", " + Math.random() + ", " + Math.random() + ", " + Math.random() + ", " + Math.random() + ", 1)";
-
-  setTransform(el, "");
-  setTransform(el, trans);
-}
-
-function setTransform(el, trans) {
-  el.style.transform = trans;
-  el.style.webkitTransform = trans;
-  el.style.MozTransform = trans;
-  el.style.msTransform = trans;
-  el.style.OTransform = trans;
-}
