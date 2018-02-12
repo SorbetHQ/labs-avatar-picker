@@ -18,16 +18,23 @@ export class App {
       this.random();
     } else {
       clearTimeout(this.goCrazyTimer);
-      [].forEach.call(document.querySelectorAll('path, polyline, polygon'),
-        (div) => setTransform(div, ''));
+      this.clearAll();
     }
   }
 
+  public clearAll() {
+    [].forEach.call(document.querySelectorAll('path, polyline, polygon'),
+      (div) => setTransform(div, ''));
+  }
+
   public random() {
-    this.goCrazyTimer = setInterval(() =>
-      [].forEach.call(document.querySelectorAll('path, polyline, polygon'),
-        (div) => randomTransform(div))
-      , 400);
+    this.randomAll();
+    this.goCrazyTimer = setInterval(() => this.randomAll(), 400);
+  }
+
+  public randomAll() {
+    [].forEach.call(document.querySelectorAll('path, polyline, polygon'),
+      (div) => randomTransform(div));
   }
 
   public partyChanged(newValue) {
@@ -88,4 +95,3 @@ function setTransform(el, trans) {
   el.style.msTransform = trans;
   el.style.OTransform = trans;
 }
-.
