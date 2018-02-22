@@ -16,7 +16,7 @@ Also make sure you have a recent version of [NodeJS](http://nodejs.org/). For re
 $ node --version
 v9.5.0
 $ npm -v
-5.4.2
+5.6.0
 ```
 
 Then clone the project.
@@ -27,11 +27,10 @@ From the project folder, execute the following command:
 npm install
 ```
 
-
-## Build and Test
+## Build and Watch
 
 ```shell
 npm start
 ```
 
-Open [http://localhost:9000](http://localhost:9000)(App) and away you go!
+Open [http://localhost:9000](http://localhost:9000) and away you go!
