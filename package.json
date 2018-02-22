@@ -1,6 +1,9 @@
 {
   "name": "blog-svg-avatar",
   "description": "An Aurelia client application.",
+  "scripts": {
+    "start": "au run --watch"
+  },
   "version": "0.1.0",
   "repository": {
     "type": "???",
